@@ -6,7 +6,7 @@ import type { Task } from "../types";
 import TaskModal from "../components/TaskModal";
 import api from "../lib/api";
 import { useAuth } from "../context/AuthContext";
-import { Settings, Plus, Users, Trash2, UserPlus, X } from "lucide-react";
+import { Plus, Users, Trash2, UserPlus, X } from "lucide-react";
 import toast from "react-hot-toast";
 
 interface Project {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import TaskCard from "../components/TaskCard";
 import type { Task } from "../types";
@@ -161,7 +161,7 @@ const TasksPage = () => {
           task={editTask}
           projects={projects}
           onClose={() => setShowModal(false)}
-          onSave={(t) => {
+          onSave={() => {
             fetchData(); // Simplest way to ensure sorting/filtering applies
           }}
         />

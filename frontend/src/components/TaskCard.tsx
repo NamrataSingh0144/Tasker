@@ -1,4 +1,3 @@
-import React from "react";
 import { Calendar, Edit2, Trash2 } from "lucide-react";
 import type { Task } from "../types";
 import { useAuth } from "../context/AuthContext";
