@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Zap, Eye, EyeOff } from "lucide-react";
+//import { Zap, Eye, EyeOff } from "lucide-react";
+import { SquareCheckBig, Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 
 const RegisterPage = () => {
@@ -34,7 +35,7 @@ const RegisterPage = () => {
         {/* Brand */}
         <div className="text-center mb-8">
           <div className="w-[52px] h-[52px] rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center mx-auto mb-4 shadow-[0_8px_24px_rgba(99,102,241,0.4)]">
-            <Zap size={24} color="white" />
+            <SquareCheckBig size={24} color="white" />
           </div>
           <h1 className="text-3xl font-extrabold text-[#f1f1f5]">
             Join TaskFlow
