@@ -43,10 +43,10 @@ const DashboardPage = () => {
         {/* Header */}
         <div className="flex flex-col gap-1">
           <h1 className="text-2xl font-bold text-[#f1f1f5]">
-            Welcome back, {user?.name}! 👋
+            Hi ,{user?.name}! 
           </h1>
           <p className="text-[#9191a8]">
-            Here's what's happening in your workspace today.
+            Today,s Work.
           </p>
         </div>
 
