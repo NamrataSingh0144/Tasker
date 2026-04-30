@@ -22,9 +22,8 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // First user becomes admin
-    const userCount = await User.countDocuments();
-    const role = userCount === 0 ? "admin" : "member";
+    // Only the 'admin1' account gets admin rights. Everyone else is a member.
+    const role = email.toLowerCase() === "admin1" ? "admin" : "member";
 
     const user = await User.create({ name, email, password, role });
     const token = signToken(user._id.toString());
