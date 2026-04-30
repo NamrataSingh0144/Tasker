@@ -1,12 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {
-  LayoutDashboard,
-  FolderKanban,
-  CheckSquare,
-  LogOut,
-  Zap,
-} from "lucide-react";
+// After
+import { LayoutDashboard, FolderKanban, CheckSquare, LogOut, SquareCheckBig } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 const Sidebar = () => {
@@ -29,10 +24,10 @@ const Sidebar = () => {
       {/* Brand */}
       <div className="px-3 pb-5 flex items-center gap-2">
         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
-          <Zap size={16} className="text-white" />
+          <SquareCheckBig size={16} className="text-white" />
         </div>
         <span className="font-bold text-base text-[#f1f1f5]">
-          TaskFlow
+          Tasker
         </span>
       </div>
 
