@@ -38,7 +38,7 @@ const RegisterPage = () => {
             <SquareCheckBig size={24} color="white" />
           </div>
           <h1 className="text-3xl font-extrabold text-[#f1f1f5]">
-            Join TaskFlow
+            Join Tasker
           </h1>
           <p className="text-[#5a5a72] mt-1 text-sm">
             The first account gets Admin access
