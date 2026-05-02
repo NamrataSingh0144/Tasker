@@ -1,158 +1,115 @@
-# TaskFlow — Team Task Manager
-
-A full-stack team task management platform with role-based access control, built with **React + TypeScript + Vite** (frontend) and **Node.js + Express + TypeScript + MongoDB** (backend).
-
----
-
-## 🚀 Live Demo
-
-- **App**: [https://your-app.railway.app](https://your-app.railway.app)
-- **API**: [https://your-api.railway.app](https://your-api.railway.app)
-
----
-
-## ✨ Features
-
-- **Authentication** — JWT-based signup/login with bcrypt password hashing
-- **Role-Based Access Control** — Admin & Member roles (first registered user = Admin)
-- **Projects** — Create, edit, delete projects; manage team members by email
-- **Tasks** — Create tasks with title, description, priority, due date, assignee
-- **Status Tracking** — To Do → In Progress → Done with inline status updates
-- **Dashboard** — Real-time stats: total tasks, by status, overdue count, progress bar
-- **Filtering** — Filter tasks by status, priority, or project
-
----
-
-## 🛠 Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 19, TypeScript, Vite, Tailwind CSS v4 |
-| Backend | Node.js, Express 5, TypeScript |
-| Database | MongoDB with Mongoose |
-| Auth | JWT, bcrypt |
-| UI Libraries | Lucide React, React Hot Toast, React Router DOM |
-| Deployment | Railway (backend + frontend) |
-
----
-
-## 📁 Project Structure
-
-```
-Assistment/
-├── backend/
-│   ├── src/
-│   │   ├── config/db.ts          # MongoDB connection
-│   │   ├── middleware/auth.ts    # JWT + role middleware
-│   │   ├── models/               # User, Project, Task schemas
-│   │   ├── controllers/          # Auth, Project, Task logic
-│   │   ├── routes/               # Express route definitions
-│   │   └── index.ts              # Express app entry
-│   ├── .env                      # Environment variables
-│   ├── railway.json              # Railway deployment config
-│   └── package.json
-└── frontend/
-    ├── src/
-    │   ├── components/           # Layout, TaskCard, Modals, StatCard
-    │   ├── context/AuthContext   # Global auth state
-    │   ├── lib/api.ts            # Axios instance with JWT interceptor
-    │   ├── pages/                # Dashboard, Projects, Tasks, Auth pages
-    │   └── App.tsx               # Router setup
-    ├── .env                      # VITE_API_URL
-    └── package.json
-```
-
----
-
-## 🔌 API Reference
-
-### Auth
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| POST | `/api/auth/register` | Public | Register (1st user = Admin) |
-| POST | `/api/auth/login` | Public | Login, returns JWT |
-| GET | `/api/auth/me` | Protected | Current user info |
-
-### Projects
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| GET | `/api/projects` | Member+ | List user's projects |
-| POST | `/api/projects` | Admin | Create project |
-| GET | `/api/projects/:id` | Member+ | Project details + tasks |
-| PUT | `/api/projects/:id` | Admin | Update project |
-| DELETE | `/api/projects/:id` | Admin | Delete project + tasks |
-| POST | `/api/projects/:id/members` | Admin | Add member by email |
-| DELETE | `/api/projects/:id/members/:uid` | Admin | Remove member |
-
-### Tasks
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| GET | `/api/tasks` | Member+ | List tasks (filterable) |
-| POST | `/api/tasks` | Member+ | Create task |
-| GET | `/api/tasks/:id` | Member+ | Single task |
-| PUT | `/api/tasks/:id` | Member+ | Update task / status |
-| DELETE | `/api/tasks/:id` | Admin | Delete task |
-| GET | `/api/tasks/dashboard` | Member+ | Aggregated stats |
-
----
-
-## 🏃 Local Development
-
-### Backend
-```bash
-cd backend
-npm install
-# Set .env: MONGO_URI, JWT_SECRET, PORT
-npm run dev
-```
-
-### Frontend
-```bash
-cd frontend
-npm install
-# Set .env: VITE_API_URL=http://localhost:3000/api
-npm run dev
-```
-
----
-
-## 🚂 Railway Deployment
-
-### Backend
-1. Create a new Railway project → "Deploy from GitHub repo" → select `backend/`
-2. Set environment variables:
-   ```
-   MONGO_URI=mongodb+srv://...  (MongoDB Atlas)
-   JWT_SECRET=your_strong_secret
-   NODE_ENV=production
-   CLIENT_URL=https://your-frontend.railway.app
-   ```
-3. Railway auto-runs `npm run build && npm start`
-
-### Frontend
-1. Create another Railway service → select `frontend/`
-2. Set:
-   ```
-   VITE_API_URL=https://your-backend.railway.app/api
-   ```
-3. Build command: `npm run build`  
-   Start command: `npx serve dist`
-
----
-
-## 👥 Role-Based Access
-
-| Action | Admin | Member |
-|--------|-------|--------|
-| Create/Edit/Delete projects | ✅ | ❌ |
-| Add/Remove members | ✅ | ❌ |
-| Create/Edit tasks | ✅ | ✅ |
-| Update task status | ✅ | ✅ |
-| Delete tasks | ✅ | ❌ |
-| View dashboard | ✅ | ✅ (own scope) |
-
----
-
-## 📄 License
-
-MIT
+README.txt
+================================================================
+TASKER — Team Task Manager
+================================================================
+ 
+LIVE URL:
+https://frontend-production-0dd4.up.railway.app
+ 
+GITHUB REPOSITORY:
+https://github.com/NamrataSingh0144/Tasker
+ 
+================================================================
+WHAT IS TASKER?
+================================================================
+Tasker is a team task management app I built to help teams
+stay organized. The idea is simple — you create projects,
+add tasks, assign them to teammates, and everyone can track
+what's done, what's in progress, and what's overdue.
+ 
+It has role-based access, so Admins have full control while
+Members can focus on their assigned work. The first person
+to register automatically becomes the Admin.
+ 
+================================================================
+WHAT CAN YOU DO WITH IT?
+================================================================
+- Sign up and log in securely
+- Create projects and organize work
+- Add tasks with due dates, priorities, and assignees
+- Update task status (Todo → In Progress → Done)
+- See overdue tasks that need attention
+- Get a dashboard overview of everything happening
+- Admin can manage the whole team; Members see their work
+ 
+================================================================
+TECH I USED
+================================================================
+Frontend:
+  React, TypeScript, Vite, Tailwind CSS,
+  React Router, Axios, Lucide Icons
+ 
+Backend:
+  Node.js, Express, TypeScript, MongoDB, Mongoose,
+  JWT for auth, Bcrypt for password hashing
+ 
+Deployed on Railway (frontend + backend)
+Database on MongoDB Atlas
+ 
+================================================================
+HOW TO RUN IT LOCALLY
+================================================================
+You'll need Node.js v18+ and a MongoDB Atlas connection string.
+ 
+Step 1 — Clone the repo:
+  git clone https://github.com/NamrataSingh0144/Tasker.git
+  cd Tasker
+ 
+Step 2 — Start the backend:
+  cd backend
+  npm install
+  Create a .env file and add:
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=any_secret_key
+    PORT=5000
+  npm run dev
+ 
+Step 3 — Start the frontend:
+  cd frontend
+  npm install
+  Create a .env file and add:
+    VITE_API_URL=http://localhost:5000/api
+  npm run dev
+ 
+Step 4 — Open http://localhost:5173 in your browser.
+  The first account you create will be Admin.
+ 
+================================================================
+PROJECT STRUCTURE
+================================================================
+assignment/
+├── frontend/          # React app (UI, pages, components)
+└── backend/           # Express API (routes, models, auth)
+ 
+================================================================
+API ROUTES
+================================================================
+POST   /api/auth/register        Register a new user
+POST   /api/auth/login           Login
+ 
+GET    /api/projects             List all projects
+POST   /api/projects             Create a project (Admin)
+GET    /api/projects/:id         Get project details
+DELETE /api/projects/:id         Delete a project (Admin)
+ 
+GET    /api/tasks                List all tasks
+POST   /api/tasks                Create a task (Admin)
+PATCH  /api/tasks/:id            Update task status
+DELETE /api/tasks/:id            Delete a task (Admin)
+GET    /api/tasks/dashboard      Dashboard stats
+ 
+================================================================
+DEPLOYMENT
+================================================================
+I deployed both services on Railway.
+ 
+Backend: https://tasker-production-ff33.up.railway.app
+Frontend: https://frontend-production-0dd4.up.railway.app
+ 
+================================================================
+AUTHOR
+================================================================
+Namrata Singh
+GitHub: https://github.com/NamrataSingh0144/Tasker
+ 
+================================================================
